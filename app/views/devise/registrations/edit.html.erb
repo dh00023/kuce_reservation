@@ -4,8 +4,26 @@
   <%= devise_error_messages! %>
 
   <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
+    <%= f.label :studentid %><br />
+    <%= f.text_field :studentid, autofocus: true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :username %><br />
+    <%= f.text_field :username %>
+  </div>
+
+  <div class="field">
+    <p>학과:</p>
+    <label><%= f.radio_button :major,'0'%>응용통계학과</label>
+    <label><%= f.radio_button :major,'1'%>국제무역학과</label>
+    <label><%= f.radio_button :major,'2'%>경제학과</label>
+    <label><%= f.radio_button :major,'3'%>소비자정보학과</label>
+  </div>
+
+  <div class="field">
+    <%= f.label :phone %><br />
+    <%= f.text_field :phone %>
   </div>
 
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>

@@ -9,6 +9,12 @@
   </head>
 
   <body>
+  	<% if user_signed_in? %>
+   		<%= link_to '예약하기', new_reservation_path %>
+ 		<%= link_to '로그아웃', destroy_user_session_path, method: :delete %>
+ 	<% else %>
+ 		<%= link_to "Log In", new_user_session_path%>
+ 	<% end %>
     <%= yield %>
   </body>
 </html>

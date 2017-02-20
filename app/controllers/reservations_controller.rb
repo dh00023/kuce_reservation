@@ -4,7 +4,11 @@ class ReservationsController < ApplicationController
   # GET /reservations
   # GET /reservations.json
   def index
-    @reservations = Reservation.all
+    if current_user.try(:admin?)
+        @reservations = Reservation.all
+    else
+      @reservations = Reservation.where(user_id: current_user)
+    end
   end
 
   # GET /reservations/1
@@ -14,7 +18,7 @@ class ReservationsController < ApplicationController
 
   # GET /reservations/new
   def new
-    @reservation = Reservation.new
+    @reservation = current_user.reservations.build
   end
 
   # GET /reservations/1/edit
@@ -24,7 +28,7 @@ class ReservationsController < ApplicationController
   # POST /reservations
   # POST /reservations.json
   def create
-    @reservation = Reservation.new(reservation_params)
+    @reservation = current_user.reservations.build(reservation_params)
 
     respond_to do |format|
       if @reservation.save
