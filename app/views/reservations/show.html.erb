@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Starttime:</strong>
+  <%= @reservation.starttime %>
+</p>
+
+<p>
+  <strong>Endtime:</strong>
+  <%= @reservation.endtime %>
+</p>
+
+<p>
+  <strong>Choose:</strong>
+  <%= @reservation.choose %>
+</p>
+
+<%= link_to 'Edit', edit_reservation_path(@reservation) %> |
+<%= link_to 'Back', reservations_path %>
