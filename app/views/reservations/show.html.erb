@@ -1,19 +1,41 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Starttime:</strong>
+  <strong>학번:</strong>
+  <%= @reservation.user.studentid %>
+</p>
+
+<p>
+  <strong>이름:</strong>
+  <%= @reservation.user.username %>
+</p>
+
+<p>
+  <strong>전화번호:</strong>
+  <%= @reservation.user.phone %>
+</p>
+
+<p>
+  <strong>과:</strong>
+  <%= @reservation.user.major %>
+</p>
+
+<p>
+  <strong>예약시간:</strong>
   <%= @reservation.starttime %>
 </p>
 
 <p>
-  <strong>Endtime:</strong>
-  <%= @reservation.endtime %>
+  <strong>선택시간:</strong>
+  <%= @reservation.choose %>
 </p>
 
 <p>
-  <strong>Choose:</strong>
-  <%= @reservation.choose %>
+  <strong>세미나실:</strong>
+  <%= @reservation.groups.name %>
 </p>
+
+
 
 <%= link_to 'Edit', edit_reservation_path(@reservation) %> |
 <%= link_to 'Back', reservations_path %>

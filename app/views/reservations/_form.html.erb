@@ -17,15 +17,18 @@
   </div>
 
   <div class="field">
-    <%= f.label :endtime %>
-    <%= f.datetime_select :endtime %>
+    <p>예약시간</p>
+    <label><%= f.radio_button :choose,'1'%>1시간</label>
+    <label><%= f.radio_button :choose,'2'%>2시간</label>
   </div>
+
 
   <div class="field">
-    <%= f.label :choose %>
-    <%= f.text_field :choose %>
+    <p>세미나실</p>
+    <label><%= f.radio_button :group_ids,'1'%>205호</label>
+    <label><%= f.radio_button :group_ids,'2'%>206호</label>
+    <label><%= f.radio_button :group_ids,'3'%>207호</label>
   </div>
-
   <div class="actions">
     <%= f.submit %>
   </div>
