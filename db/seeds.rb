@@ -5,6 +5,6 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-Group.create(name: '205호', color: '#FFFFB0')
-Group.create(name: '206호', color: '#DB8FAB')
-Group.create(name: '207호', color: '#957CB2')
+Group.create!(name: '205호', color: '#FFFFB0')
+Group.create!(name: '206호', color: '#DB8FAB')
+Group.create!(name: '207호', color: '#957CB2')

@@ -19,7 +19,6 @@ class ReservationsController < ApplicationController
   # GET /reservations/new
   def new
     @reservation = current_user.reservations.build
-    @reservation.groups.build
   end
 
   # GET /reservations/1/edit
@@ -74,6 +73,6 @@ class ReservationsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def reservation_params
-      params.require(:reservation).permit(:starttime, :endtime, :choose,:group_ids)
+      params.require(:reservation).permit(:starttime, :endtime, :choose,:group_id)
     end
 end

@@ -24,7 +24,9 @@
 
   <div class="field">
     <p>세미나실:</p>
-    <%= f.collection_radio_buttons :group_ids , Group.all, :id, :name%>
+    <label><%= f.radio_button :group_id,'1'%>205호</label>
+    <label><%= f.radio_button :group_id,'2'%>206호</label>
+    <label><%= f.radio_button :group_id,'3'%>207호</label>
   </div>
   
   <div class="actions">

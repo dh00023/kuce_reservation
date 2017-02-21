@@ -1,10 +1,11 @@
 class Reservation < ApplicationRecord
-	has_and_belongs_to_many :groups
+	belongs_to :group
 	belongs_to :user
-	
-	
+
+	validates :starttime, presence: true, uniqueness: {scope: :group_id}
+	validates :endtime, uniqueness: {scope: :group_id}
 	validates :choose, presence: {message: "시간이 선택되지 않았습니다."}
-	validates :groups, presence: {message: "세미나실이 선택되지 않았습니다."}
+	validates :group_id, presence: {message: "세미나실이 선택되지 않았습니다."}
 	before_validation :endtimesetting
 
 
