@@ -32,6 +32,11 @@ class ReservationsController < ApplicationController
 
     respond_to do |format|
       if @reservation.save
+        if @reservation.choose.to_i==2
+          Reservation.create!(user_id: @reservation.user_id, group_id: @reservation.group_id,
+                              starttime: @reservation.starttime+1.hours, endtime: @reservation.endtime+1.hours,
+                              choose: '1')
+        end
         format.html { redirect_to @reservation, notice: 'Reservation was successfully created.' }
         format.json { render :show, status: :created, location: @reservation }
       else
