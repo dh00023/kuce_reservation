@@ -1,4 +1,11 @@
 class Reservation < ApplicationRecord
+
+    @reservations = Reservation.all
+    t=Time.now
+    if t.strftime("%a")=='Mon' && t.strftime("%H")=="00"
+        Reservation.delete_all
+    end
+
 	belongs_to :group
 	belongs_to :user
 
@@ -8,11 +15,9 @@ class Reservation < ApplicationRecord
 	validates_datetime :endtime, :on_or_before => '10:00pm',:on_or_before_message => '10PM이후의 시간은 예약할 수 없습니다.'
 
 	before_validation :endtimesetting
-
 	private
 
 	def endtimesetting
 	   	self.endtime = self.starttime+1.hours
 	end	
-
 end
