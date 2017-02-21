@@ -12,23 +12,21 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :starttime %>
+    <%= f.label :예약시간 %>
     <%= f.datetime_select :starttime %>
   </div>
 
   <div class="field">
-    <p>예약시간</p>
-    <label><%= f.radio_button :choose,'1'%>1시간</label>
-    <label><%= f.radio_button :choose,'2'%>2시간</label>
+    <p>예약시간:</p>
+    <label><%= f.radio_button :choose,'0'%>1시간</label>
+    <label><%= f.radio_button :choose,'1'%>2시간</label>
   </div>
-
 
   <div class="field">
-    <p>세미나실</p>
-    <label><%= f.radio_button :group_ids,'1'%>205호</label>
-    <label><%= f.radio_button :group_ids,'2'%>206호</label>
-    <label><%= f.radio_button :group_ids,'3'%>207호</label>
+    <p>세미나실:</p>
+    <%= f.collection_radio_buttons :group_ids , Group.all, :id, :name%>
   </div>
+  
   <div class="actions">
     <%= f.submit %>
   </div>

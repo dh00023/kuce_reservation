@@ -27,12 +27,12 @@
 
 <p>
   <strong>선택시간:</strong>
-  <%= @reservation.choose %>
+  <%= @reservation.choose.to_i + 1 %> 시간
 </p>
 
 <p>
   <strong>세미나실:</strong>
-  <%= @reservation.groups.name %>
+  <%= @reservation.groups[0].name %>
 </p>
 
 
