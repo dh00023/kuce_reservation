@@ -29,20 +29,30 @@ class ReservationsController < ApplicationController
   # POST /reservations.json
   def create
     @reservation = current_user.reservations.build(reservation_params)
+    @reservations = Reservation.where(user_id: current_user)
+    reservation_count=@reservations.count()
 
-    respond_to do |format|
-      if @reservation.save
-        if @reservation.choose.to_i==2
-          Reservation.create!(user_id: @reservation.user_id, group_id: @reservation.group_id,
-                              starttime: @reservation.starttime+1.hours, endtime: @reservation.endtime+1.hours,
-                              choose: '1')
+    
+    if reservation_count <=4
+      respond_to do |format|
+        if @reservation.save
+          if @reservation.choose.to_i==2
+            if reservation_count <=4
+              Reservation.create!(user_id: @reservation.user_id, group_id: @reservation.group_id,
+                                starttime: @reservation.starttime+1.hours, endtime: @reservation.endtime+1.hours,
+                                choose: '1')  
+            end
+          end
+          format.html { redirect_to @reservation, notice: '예약이 완료되었습니다.' }
+          format.json { render :show, status: :created, location: @reservation }
+        else
+          format.html { render :new ,notice: '예약시간을 초과하셨습니다.'}
+          format.json { render json: @reservation.errors, status: :unprocessable_entity }
         end
-        format.html { redirect_to @reservation, notice: 'Reservation was successfully created.' }
-        format.json { render :show, status: :created, location: @reservation }
-      else
-        format.html { render :new }
-        format.json { render json: @reservation.errors, status: :unprocessable_entity }
       end
+    else
+      flash[:errors] = "일주일 예약가능 최대시간을 초과하였습니다."
+      redirect_to root_path
     end
   end
 
@@ -50,7 +60,7 @@ class ReservationsController < ApplicationController
   # PATCH/PUT /reservations/1.json
   def update
     respond_to do |format|
-      if @reservation.update(reservation_params)
+      if @reservation.update(reservation_params)  
         format.html { redirect_to @reservation, notice: 'Reservation was successfully updated.' }
         format.json { render :show, status: :ok, location: @reservation }
       else
