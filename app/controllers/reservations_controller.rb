@@ -9,6 +9,10 @@ class ReservationsController < ApplicationController
     else
       @reservations = Reservation.where(user_id: current_user)
     end
+    respond_to do |format|
+      format.html # index.html.erb
+      format.json { render json: @reservations }
+    end
   end
 
   # GET /reservations/1

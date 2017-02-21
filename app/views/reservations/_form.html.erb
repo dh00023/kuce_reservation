@@ -13,7 +13,7 @@
 
   <div class="field">
     <%= f.label :예약시간 %>
-    <%= f.datetime_select :starttime %>
+    <%= f.datetime_select :starttime, :discard_minute=> true, start_hour: 9, end_hour: 21 %>
   </div>
 
   <div class="field">
@@ -28,7 +28,7 @@
     <label><%= f.radio_button :group_id,'2'%>206호</label>
     <label><%= f.radio_button :group_id,'3'%>207호</label>
   </div>
-  
+
   <div class="actions">
     <%= f.submit %>
   </div>
