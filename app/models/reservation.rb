@@ -1,4 +1,11 @@
 class Reservation < ApplicationRecord
+
+    @reservations = Reservation.all
+    t=Time.now
+    if t.strftime("%a")=='Mon' && t.strftime("%H")=="00"
+        Reservation.delete_all
+    end
+
 	belongs_to :group
 	belongs_to :user
 

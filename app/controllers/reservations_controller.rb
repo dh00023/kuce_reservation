@@ -1,6 +1,5 @@
 class ReservationsController < ApplicationController
   before_action :set_reservation, only: [:show, :edit, :update, :destroy]
-
   # GET /reservations
   # GET /reservations.json
   def index
@@ -32,20 +31,33 @@ class ReservationsController < ApplicationController
   # POST /reservations.json
   def create
     @reservation = current_user.reservations.build(reservation_params)
+    @reservations = Reservation.where(user_id: current_user)
+    reservation_count=@reservations.count()
 
-    respond_to do |format|
-      if @reservation.save
-        if @reservation.choose.to_i==2
-          Reservation.create!(user_id: @reservation.user_id, group_id: @reservation.group_id,
-                              start: @reservation.start+1.hours, end: @reservation.end+1.hours,
-                              choose: '1')
+    if reservation_count < 4
+      respond_to do |format|
+        if @reservation.save
+          if @reservation.choose.to_i==2
+            if reservation_count < 3
+              Reservation.create!(user_id: @reservation.user_id, group_id: @reservation.group_id,
+                                starttime: @reservation.starttime+1.hours, endtime: @reservation.endtime+1.hours,
+                                choose: '1')
+            else
+              flash[:errors] = "일주일 예약가능 최대시간을 초과하였습니다."
+              redirect_to root_path
+            end
+          end
+          format.html { redirect_to @reservation, notice: '예약이 완료되었습니다.' }
+          format.json { render :show, status: :created, location: @reservation }
+        else
+          format.html { render :new ,notice: '예약시간을 초과하셨습니다.'}
+          format.json { render json: @reservation.errors, status: :unprocessable_entity }
+
         end
-        format.html { redirect_to @reservation, notice: 'Reservation was successfully created.' }
-        format.json { render :show, status: :created, location: @reservation }
-      else
-        format.html { render :new }
-        format.json { render json: @reservation.errors, status: :unprocessable_entity }
       end
+    else
+      flash[:errors] = "일주일 예약가능 최대시간을 초과하였습니다."
+      redirect_to root_path
     end
   end
 
