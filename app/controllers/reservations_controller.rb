@@ -4,17 +4,16 @@ class ReservationsController < ApplicationController
   # GET /reservations
   # GET /reservations.json
   def index
-    if current_user.try(:admin?)
-        @reservations = Reservation.all
-    else
-      @reservations = Reservation.where(user_id: current_user)
-    end
     respond_to do |format|
+        if current_user.try(:admin?)
+        @reservations = Reservation.all
+      else
+        @reservations = Reservation.where(user_id: current_user)
+      end
       format.html # index.html.erb
       format.json { render json: @reservations }
     end
   end
-
   # GET /reservations/1
   # GET /reservations/1.json
   def show
@@ -38,7 +37,7 @@ class ReservationsController < ApplicationController
       if @reservation.save
         if @reservation.choose.to_i==2
           Reservation.create!(user_id: @reservation.user_id, group_id: @reservation.group_id,
-                              starttime: @reservation.starttime+1.hours, endtime: @reservation.endtime+1.hours,
+                              start: @reservation.start+1.hours, end: @reservation.end+1.hours,
                               choose: '1')
         end
         format.html { redirect_to @reservation, notice: 'Reservation was successfully created.' }
@@ -82,6 +81,6 @@ class ReservationsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def reservation_params
-      params.require(:reservation).permit(:starttime, :endtime, :choose,:group_id)
+      params.require(:reservation).permit(:start, :end, :choose,:group_id)
     end
 end

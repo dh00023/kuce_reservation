@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170221111257) do
+ActiveRecord::Schema.define(version: 20170222211428) do
 
   create_table "groups", force: :cascade do |t|
     t.string   "color"
@@ -20,13 +20,15 @@ ActiveRecord::Schema.define(version: 20170221111257) do
   end
 
   create_table "reservations", force: :cascade do |t|
-    t.datetime "starttime"
-    t.datetime "endtime"
+    t.datetime "start"
+    t.datetime "end"
     t.string   "choose"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer  "user_id"
     t.integer  "group_id"
+    t.integer  "title"
+    t.string   "color"
   end
 
   create_table "users", force: :cascade do |t|

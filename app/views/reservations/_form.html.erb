@@ -13,7 +13,7 @@
 
   <div class="field">
     <%= f.label :예약시간 %>
-    <%= f.datetime_select :starttime, :discard_minute=> true, start_hour: 9, end_hour: 21 %>
+    <%= f.datetime_select :start, date_separator: '월', datetime_separator: '일          ', use_month_numbers: true, discard_year: true, discard_minute: true, start_hour: 9, end_hour: 21, min: Date.today%>
   </div>
 
   <div class="field">

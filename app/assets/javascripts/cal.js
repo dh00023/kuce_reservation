@@ -15,39 +15,7 @@ init_cal=function(){
         selectHelper: true,
         editable: false,
         allDaySlot: false,
-        events: '/events.json',
-
-        select: function(start,end){
-          $.getScript('/events/new', function() {});
-          calendar.fullCalendar('unselect');
-        },
-
-        eventDrop: function(event, delta, revertFunc){
-          event_data = {
-            event: {
-              id: event.id,
-              start: event.start.format(),
-              end: event.end.format()
-            }
-          };
-          $.ajax({
-            url: event.update_url,
-            data: event_data,
-            type: 'PATCH'
-          });
-        },
-
-        eventClick: function(event){
-          window.open(event.url, 'gcalevent', 'width=700,height=600');
-          return false;
-        },
-        eventMouseover: function(event, jsEvent, view) {
-          $('.fc-event-inner', this).append('<div id=\"'+event.title+'\" class=\"hover-end\">'+$.fullCalendar.formatDate(event.end, 'h:mmt')+'</div>');
-        },
-
-        eventMouseout: function(event, jsEvent, view) {
-          $('#'+event.id).remove();
-        },
+        events: '/reservations.json',
 
         minTime: "9:00:00",
         maxTime: "22:00:00",
