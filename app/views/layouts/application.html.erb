@@ -10,10 +10,16 @@
 
   <body>
   	<% if user_signed_in? %>
+      <%= link_to '홈', root_path %>
    		<%= link_to '예약하기', new_reservation_path %>
- 		<%= link_to '로그아웃', destroy_user_session_path, method: :delete %>
+      <%= link_to '예약확인', check_reservation_path %>
+ 		  <% if current_user.try(:admin?) %>
+        <%= link_to '공지사항', welcomes_path %></td>
+      <% end %>
+      <%= link_to '로그아웃', destroy_user_session_path, method: :delete %>
    	<% else %>
-   		<%= link_to "Log In", new_user_session_path%>
+   		<%= link_to "로그인", new_user_session_path%>
+      <%= link_to "회원가입", new_user_registration_path%>
    	<% end %>
     <% if flash[:errors] %>
       <p style="color: green;"><%= flash[:errors] %></p>
