@@ -4,10 +4,11 @@ init_cal=function(){
       var calendar=$(this);
       calendar.fullCalendar({
         header: {
-                left: 'prevYear,prev,next,nextYear',
+                left: false,
                 center: 'title',
                 right: 'agendaWeek'
         },
+        height: 603,
         defaultView: 'agendaWeek',
         selectable: {
             agenda: true
