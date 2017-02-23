@@ -35,32 +35,31 @@ class ReservationsController < ApplicationController
     reservation_count=@reservations.count()
 
     if reservation_count < 4
-      respond_to do |format|
-        if @reservation.save
-          if @reservation.choose.to_i==2
-            if reservation_count < 3
+      unless reservation_count == 3 && @reservation.choose.to_i ==2
+        respond_to do |format|
+          if @reservation.save
+            if @reservation.choose.to_i == 2 && reservation_count < 3
               Reservation.create!(user_id: @reservation.user_id, group_id: @reservation.group_id,
-                                starttime: @reservation.starttime+1.hours, endtime: @reservation.endtime+1.hours,
+                                start: @reservation.start+1.hours, end: @reservation.end+1.hours,
                                 choose: '1')
-            else
-              flash[:errors] = "일주일 예약가능 최대시간을 초과하였습니다."
-              redirect_to root_path
             end
+            format.html { redirect_to @reservation, notice: '예약이 완료되었습니다.' }
+            format.json { render :show, status: :created, location: @reservation }
+          else
+            format.html { render :new ,notice: '예약시간을 초과하셨습니다.'}
+            format.json { render json: @reservation.errors, status: :unprocessable_entity }
           end
-          format.html { redirect_to @reservation, notice: '예약이 완료되었습니다.' }
-          format.json { render :show, status: :created, location: @reservation }
-        else
-          format.html { render :new ,notice: '예약시간을 초과하셨습니다.'}
-          format.json { render json: @reservation.errors, status: :unprocessable_entity }
-
         end
+      else
+        flash[:errors] = "일주일 예약가능 최대시간을 초과하였습니다."
+        redirect_to root_path 
       end
     else
       flash[:errors] = "일주일 예약가능 최대시간을 초과하였습니다."
       redirect_to root_path
     end
   end
-
+          
   # PATCH/PUT /reservations/1
   # PATCH/PUT /reservations/1.json
   def update
