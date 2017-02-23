@@ -4,7 +4,7 @@ class ReservationsController < ApplicationController
   # GET /reservations.json
   def index
     respond_to do |format|
-        if current_user.try(:admin?)
+      if current_user.try(:admin?)
         @reservations = Reservation.all
       else
         @reservations = Reservation.where(user_id: current_user)

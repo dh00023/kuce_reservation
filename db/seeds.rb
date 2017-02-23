@@ -8,3 +8,5 @@
 Group.create!(name: '205호', color: '#FFFFB0')
 Group.create!(name: '206호', color: '#DB8FAB')
 Group.create!(name: '207호', color: '#957CB2')
+Welcome.create!(description: '수정하세요')
+User.create!(username: "관리자", studentid: 123456789, phone: '01012345678', major: '관리자', admin: 'true',password: 'rhksflwk2017')

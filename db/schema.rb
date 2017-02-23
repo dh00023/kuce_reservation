@@ -10,19 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170223105601) do
+ActiveRecord::Schema.define(version: 20170223130750) do
 
   create_table "groups", force: :cascade do |t|
     t.string   "color"
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "posts", force: :cascade do |t|
-    t.text     "description"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
   end
 
   create_table "reservations", force: :cascade do |t|
@@ -35,16 +29,6 @@ ActiveRecord::Schema.define(version: 20170223105601) do
     t.integer  "group_id"
     t.integer  "title"
     t.string   "color"
-  end
-
-  create_table "timeuniqs", force: :cascade do |t|
-    t.integer  "timeval"
-    t.integer  "group_id"
-    t.integer  "reservation_id"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
-    t.index ["group_id"], name: "index_timeuniqs_on_group_id"
-    t.index ["reservation_id"], name: "index_timeuniqs_on_reservation_id"
   end
 
   create_table "users", force: :cascade do |t|

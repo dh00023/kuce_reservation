@@ -12,7 +12,6 @@ class User < ApplicationRecord
             length: {is: 11,too_short: '전화번호가 잘못 입력되었습니다.(숫자만입력해주세요)',too_long: '전화번호가 잘못 입력되었습니다.(숫자만입력해주세요)'}
   validates :username, presence: { message: "이름을 입력해주세요." }
   validates :major,  presence: { message: "학과를 선택해주세요." }
-
   def email_required?
     false
   end
