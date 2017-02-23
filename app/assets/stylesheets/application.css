@@ -14,13 +14,3 @@
  *= require_self
  *= require fullcalendar
  */
- .fc-agendaWeek-view tr {
-     height: 40px;
- }
-
- .fc-agendaDay-view tr {
-     height: 40px;
- }
- .calendar {
-    width: 940px;
- }
