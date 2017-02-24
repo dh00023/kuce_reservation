@@ -14,7 +14,7 @@
       <ul class="nav navbar-nav navbar-right">
          <% if user_signed_in? %>
             <li> <%= link_to '예약하기', new_reservation_path, class: "active"%></li>
-            <li><%= link_to '예약확인', check_reservation_path %></li> 
+            <li><%= link_to '예약확인', check_reservation_path %></li>
             <li><%= link_to "계정", edit_user_registration_path %></li>
             <% if current_user.try(:admin?) %>
                <li><%= link_to '공지사항', welcomes_path %></li> </td>
@@ -28,5 +28,3 @@
    </div>
   </div>
 </div>
-   		
-    

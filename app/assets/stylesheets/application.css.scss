@@ -19,13 +19,74 @@
 @import "bootstrap";
 
 body {
-  font-family: 'Spoqa Han Sans', 'Spoqa Han Sans JP', 'Sans-serif';
-  background-color: #F3CF55;
+    font-family: 'Spoqa Han Sans', 'Spoqa Han Sans JP', 'Sans-serif';
 }
 
-.fc-agendaWeek-view tr {
-    height: 40px;
+.fc-axis {
+    width: 40px!important;
 }
-.fc-view-container {
+
+.fc-today.fc-state-highlight {
+    background: #ffffff!important;
+}
+
+.fc-row .fc-widget-header {
+    font-size: 18px;
+    height: 26px!important;
+    color: #ffffff;
+    background-color: #333;
+    border-color: #333;
+}
+
+.fc-body tr{
+    height: 45px;
+}
+
+.fc-view-container{
+    margin-top: 20px;
     background-color: #ffffff;
  }
+
+.fc-day-header {
+    margin-bottom: 3px!important;
+}
+
+.fc-left {
+    margin-bottom: 25px;
+}
+
+.fc-left h2 {
+    font-size: 18px;
+}
+
+.fc-ltr .fc-time-grid .fc-event-container{
+    margin: 0!important;
+ }
+
+.fc-time-grid-event.fc-v-event.fc-event.fc-start.fc-end {
+    border-style: none;
+    border-radius: 0;
+}
+
+.navbar.navbar-default {
+    border-style: none;
+    background-color: #ffffff;
+}
+
+.title{
+    margin-top: 37px;
+    margin-bottom: 20px;
+}
+
+td{
+    border-color: #333!important;
+}
+
+.fc-event{
+    font-size: 15px!important;
+    text-align: center;
+}
+
+.fc-time{
+    margin-top: 3.5px;
+}
