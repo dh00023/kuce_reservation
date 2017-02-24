@@ -1,25 +1,22 @@
-<p id="notice"><%= notice %></p>
-
-<h1>Welcomes</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Description</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @welcomes.each do |welcome| %>
-      <tr>
-        <td><%= welcome.description %></td>
-        <% if current_user.try(:admin?) %>
-        <td><%= link_to 'Edit', edit_welcome_path(welcome) %></td>
-        <% end %>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
+<div class="panel panel-default">
+  <div class="panel-body">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="jumbotron">
+          <h1>상경대 세미나실 예약페이지</h1>
+          <p><%= link_to "회원가입", new_user_registration_path, class: "btn btn-primary btn-md" %> <%= link_to "로그인", new_user_session_path, class: "btn btn-primary btn-md" %></p>
+        </div>
+      </div>
+      <div class="col-md-5">
+        <div class="form-group">
+          <% @welcomes.each do |welcome| %>
+            <p><%= welcome.description %></p> 
+            <% if current_user.try(:admin?) %>
+              <%= link_to 'Edit', edit_welcome_path(welcome) %>
+            <% end %>
+          <% end %>
+        </div>        
+      </div>
+    </div>
+  </div>
+</div>

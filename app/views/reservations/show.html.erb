@@ -1,41 +1,44 @@
-<p id="notice"><%= notice %></p>
+<div class="col-md-4 col-md-offset-4">
+  <div class="row">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h1>예약정보</h1>
+      </div>
+      <div class="panel-body">
+        <p class="form-group">
+          <strong>학번:</strong>
+          <%= @reservation.user.studentid %>
+        </p>
 
-<p>
-  <strong>학번:</strong>
-  <%= @reservation.user.studentid %>
-</p>
+        <p class="form-group">
+          <strong>이름:</strong>
+          <%= @reservation.user.username %>
+        </p>
 
-<p>
-  <strong>이름:</strong>
-  <%= @reservation.user.username %>
-</p>
+        <p class="form-group">
+          <strong>전화번호:</strong>
+          <%= @reservation.user.phone %>
+        </p>
 
-<p>
-  <strong>전화번호:</strong>
-  <%= @reservation.user.phone %>
-</p>
+        <p class="form-group">
+          <strong>과:</strong>
+          <%= @reservation.user.major %>
+        </p>
 
-<p>
-  <strong>과:</strong>
-  <%= @reservation.user.major %>
-</p>
+        <p class="form-group">
+          <strong>예약시간:</strong>
+          <%= @reservation.start.strftime("%F %I:%M") %>~
+          <%= @reservation.end.strftime("%I:%M") %>
+        </p>
 
-<p>
-  <strong>예약시간:</strong>
-  <%= @reservation.start %>
-</p>
+        <p class="form-group">
+          <strong>세미나실:</strong>
+          <%= @reservation.group.name %>
+        </p>
 
-<p>
-  <strong>선택시간:</strong>
-  <%= @reservation.choose.to_i %> 시간
-</p>
-
-<p>
-  <strong>세미나실:</strong>
-  <%= @reservation.group.name %>
-</p>
-
-
-
-<%= link_to 'Edit', edit_reservation_path(@reservation) %> |
-<%= link_to 'Back', reservations_path %>
+        <%= link_to 'Edit', edit_reservation_path(@reservation) %> |
+        <%= link_to 'Back', reservations_path %>
+      </div>
+    </div>
+  </div>
+</div>

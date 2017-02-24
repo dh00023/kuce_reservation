@@ -1,31 +1,41 @@
-<h1>예약확인 페이지</h1>
-<table>
-  <thead>
-    <tr>
-      <th>학번</th>
-      <th>이름</th>
-      <th>전화번호</th>
-      <th>과</th>
-      <th>세미나실</th>
-      <th>예약시간</th>
-      <th>시간선택</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<div class="col-md-10 col-md-offset-1">
+  <div class="row">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h1>예약확인 페이지</h1>
+      </div>
+      <div class="panel-body">
+        <div class="table-responsive">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>학번</th>
+                <th>이름</th>
+                <th>전화번호</th>
+                <th>과</th>
+                <th>세미나실</th>
+                <th>예약시간</th>
+                <th colspan="3"></th>
+              </tr>
+            </thead>
 
-  <tbody>
-    <% @reservations.each do |reservation| %>
-      <tr>
-        <td><%= reservation.user.studentid %></td>
-        <td><%= reservation.user.username %></td>
-        <td><%= reservation.user.phone %></td>
-        <td><%= reservation.user.major %></td>
-        <td><%= reservation.group.name %></td>
-        <td><%= reservation.start %></td>
-        <td><%= reservation.choose %></td>
-        <td><%= link_to '예약보기', reservation %></td>
-        <td><%= link_to '예약취소', reservation, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+            <tbody>
+              <% @reservations.each do |reservation| %>
+                <tr>
+                  <td><%= reservation.user.studentid %></td>
+                  <td><%= reservation.user.username %></td>
+                  <td><%= reservation.user.phone %></td>
+                  <td><%= reservation.user.major %></td>
+                  <td><%= reservation.group.name %></td>
+                  <td><%= reservation.start.strftime("%F %I:%M") %> ~ <%= reservation.end.strftime("%I:%M") %></td>
+                  <td><%= link_to '예약보기', reservation %></td>
+                  <td><%= link_to '예약취소', reservation, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> 
