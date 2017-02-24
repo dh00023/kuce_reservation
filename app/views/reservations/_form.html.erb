@@ -11,25 +11,25 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label :예약시간 %>
-    <%= f.datetime_select :start, date_separator: '월', datetime_separator: '일          ', use_month_numbers: true, discard_year: true, start_hour: 9, minute_step: 60, end_hour: 21, min: Date.today%>
+    <%= f.datetime_select :start, date_separator: '월', datetime_separator: '일          ', use_month_numbers: true, discard_year: true, start_hour: 9, minute_step: 60, end_hour: 21, min: Date.today, class: 'form-control'%>
   </div>
 
-  <div class="field">
-    <p>예약시간:</p>
+  <div class="form-group">
+    <%= f.label :시간선택 ,class: 'form-control'%>
     <label><%= f.radio_button :choose,'1'%>1시간</label>
     <label><%= f.radio_button :choose,'2'%>2시간</label>
   </div>
 
-  <div class="field">
-    <p>세미나실:</p>
+  <div class="form-group">
+    <%= f.label :세미나실 ,class: 'form-control'%>
     <label><%= f.radio_button :group_id,'1'%>205호</label>
     <label><%= f.radio_button :group_id,'2'%>206호</label>
     <label><%= f.radio_button :group_id,'3'%>207호</label>
   </div>
 
-  <div class="actions">
-    <%= f.submit %>
+  <div class="form-group">
+    <%= f.submit "예약하기", class: "btn btn-primary" %>
   </div>
 <% end %>
