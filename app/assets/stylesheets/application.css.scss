@@ -15,7 +15,8 @@
  *= require fullcalendar
  */
 @import url(//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css);
-@import url(//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-jp.css);
+@import "bootstrap-sprockets";
+@import "bootstrap";
 
 body {
   font-family: 'Spoqa Han Sans', 'Spoqa Han Sans JP', 'Sans-serif';
@@ -26,5 +27,5 @@ body {
     height: 40px;
 }
 .fc-view-container {
-        background-color: #ffffff;
+    background-color: #ffffff;
  }

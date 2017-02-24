@@ -1,0 +1,33 @@
+
+<div class="navbar navbar-default" role="navigation">
+  <div class="container">
+   <div class="navbar-header">
+     <button type="button" class="navbar-toggle collapsed" data-toggle="collapsed" data-target="#bs-example-navbar-collapse-1">
+      <span class="sr-only">Taggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+     </button>
+     <%= link_to 'KUCE x Likelion', root_path, class: "navbar-brand"  %>
+   </div>
+
+   <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav navbar-right">
+         <% if user_signed_in? %>
+            <li> <%= link_to '예약하기', new_reservation_path, class: "active"%></li>
+            <li><%= link_to '예약확인', check_reservation_path %></li> 
+            <li><%= link_to "계정", edit_user_registration_path %></li>
+            <% if current_user.try(:admin?) %>
+               <li><%= link_to '공지사항', welcomes_path %></li> </td>
+            <% end %>
+            <li><%= link_to '로그아웃', destroy_user_session_path, method: :delete %></li>
+         <% else %>
+            <li><%= link_to "회원가입", new_user_registration_path, class: "active" %></li>
+            <li><%= link_to "로그인", new_user_session_path, class: "active" %></li>
+         <% end %>
+      </ul>
+   </div>
+  </div>
+</div>
+   		
+    
