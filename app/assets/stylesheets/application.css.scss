@@ -20,6 +20,7 @@
 
 body {
     font-family: 'Spoqa Han Sans', 'Spoqa Han Sans JP', 'Sans-serif';
+    color: #444;
 }
 
 .fc-axis {
@@ -104,11 +105,14 @@ td{
   left: 0;
   padding: 1rem;
   background-color: #EFD1C6;
+  color: #444;
+  border-style: none!important;
 }
 //#F3CF55 올해의색 노란색
 //#EFD1C6 올해의색 분홍색
 .jumbotron{
   background-color: #EFD1C6;
+  margin-bottom: 0px;
 }
 .btn-primary {
     color: #fff;
@@ -138,4 +142,37 @@ td{
     background-color: #EFD1C6;
     border-color: #EFD1C6;
     color: #fff;
+}
+
+.jumbotron>h1{
+  text-align: left;
+  color: #444;
+}
+
+.form-group>.timeform{
+  height: 60px;
+}
+
+.form-group>.spaceform{
+  height: 87px;
+}
+
+.form-group>label{
+  font-size: 17px;
+}
+
+.panel-body>p{
+  font-size: 15px;
+}
+
+.table-responsive>table>thead{
+  font-size: 16px;
+}
+
+.table-responsive>table>tbody>tr{
+  height: 41px;
+}
+
+.table {
+  margin-bottom: 0px;
 }
