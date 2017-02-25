@@ -4,8 +4,8 @@
       <div class="col-md-6">
         <div class="jumbotron">
           <h1>상경대학 세미나실 예약페이지</h1>
-          <% if Time.now.strftime("%w").to_i<=6 &&  Time.now.strftime("%w").to_i>=1 %>
-            <% if Time.now.strftime("%k").to_i<=24 && Time.now.strftime("%k").to_i>=9 %> 
+          <% if Time.now.strftime("%w").to_i<=5 &&  Time.now.strftime("%w").to_i>=1 %>
+            <% if Time.now.strftime("%k").to_i<=18 && Time.now.strftime("%k").to_i>=9 %> 
               <p><%= link_to "회원가입", new_user_registration_path, class: "btn btn-primary btn-md" , id: "welcome_button"%> <%= link_to "로그인", new_user_session_path, class: "btn btn-primary btn-md",id: "welcome_button" %></p>
             <% end %>
           <% end %>
