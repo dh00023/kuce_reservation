@@ -1,68 +1,70 @@
-<div class="col-md-8 col-md-offset-2">
-  <div class="row">
-    <div class="panel panel-default">
-      <div class="panel-heading">
-        <h2>회원정보수정</h2>
-      </div>
-      <div class="panel-body">
-        <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-          <%= devise_error_messages! %>
+<div class="container">
+  <div class="col-md-8 col-md-offset-2">
+    <div class="row">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h2>회원정보수정</h2>
+        </div>
+        <div class="panel-body">
+          <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+            <%= devise_error_messages! %>
 
-          <div class="form-group">
-            <%= f.label :학번 %><br />
-            <%= f.text_field :studentid, autofocus: true, class: "form-control" %>
-          </div>
-
-          <div class="form-group">
-            <%= f.label :이름 %><br />
-            <%= f.text_field :username , class: "form-control"%>
-          </div>
-          
-          <div class="form-group">
-            <%= f.label :학과 %><br />
-              <div class="form-control">
-              <label><%= f.radio_button :major,'응용통계학과'%>응용통계학과</label>
-              <label><%= f.radio_button :major,'국제무역학과'%>국제무역학과</label>
-              <label><%= f.radio_button :major,'경제학과'%>경제학과</label>
-              <label><%= f.radio_button :major,'소비자정보학과'%>소비자정보학과</label>
+            <div class="form-group">
+              <%= f.label :학번 %><br />
+              <%= f.text_field :studentid, autofocus: true, class: "form-control" %>
             </div>
-          </div>
 
-          <div class="form-group">
-            <%= f.label :전화번호 %><br />
-            <%= f.text_field :phone , class: "form-control"%>
-          </div>
+            <div class="form-group">
+              <%= f.label :이름 %><br />
+              <%= f.text_field :username , class: "form-control"%>
+            </div>
+            
+            <div class="form-group">
+              <%= f.label :학과 %><br />
+                <div class="form-control">
+                <label><%= f.radio_button :major,'응용통계학과'%>응용통계학과</label>
+                <label><%= f.radio_button :major,'국제무역학과'%>국제무역학과</label>
+                <label><%= f.radio_button :major,'경제학과'%>경제학과</label>
+                <label><%= f.radio_button :major,'소비자정보학과'%>소비자정보학과</label>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <%= f.label :전화번호 %><br />
+              <%= f.text_field :phone , class: "form-control"%>
+            </div>
 
 
-          <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-            <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+            <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+              <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+            <% end %>
+
+            <div class="form-group">
+              <%= f.label :비밀번호 %> <i>(변경을 원하지 않을경우에 빈칸으로 두세요. 최소 6자)</i><br />
+              <%= f.password_field :password, autocomplete: "off" , class: "form-control"%>
+            </div>
+
+            <div class="form-group">
+              <%= f.label :비밀번호확인 %><br />
+              <%= f.password_field :password_confirmation, autocomplete: "off" , class: "form-control"%>
+            </div>
+
+            <div class="form-group">
+              <%= f.label :현재비밀번호 %> <br />
+              <%= f.password_field :current_password, autocomplete: "off" , class: "form-control"%>
+            </div>
+
+            <div class="form-group">
+              <%= f.submit "Update" , class: "btn btn-primary"%>
+            </div>
           <% end %>
+        </div>
 
-          <div class="form-group">
-            <%= f.label :비밀번호 %> <i>(변경을 원하지 않을경우에 빈칸으로 두세요. 최소 6자)</i><br />
-            <%= f.password_field :password, autocomplete: "off" , class: "form-control"%>
-          </div>
-
-          <div class="form-group">
-            <%= f.label :비밀번호확인 %><br />
-            <%= f.password_field :password_confirmation, autocomplete: "off" , class: "form-control"%>
-          </div>
-
-          <div class="form-group">
-            <%= f.label :현재비밀번호 %> <br />
-            <%= f.password_field :current_password, autocomplete: "off" , class: "form-control"%>
-          </div>
-
-          <div class="form-group">
-            <%= f.submit "Update" , class: "btn btn-primary"%>
-          </div>
-        <% end %>
+        <div class="panel-footer">
+          <p><%= button_to "탈퇴하기", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: "btn btn-primary" %>
+          <%= link_to "되돌아가기", :back ,class: "btn"%> </p>
+        </div> 
       </div>
-
-      <div class="panel-footer">
-        <p><%= button_to "탈퇴하기", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: "btn btn-primary" %>
-        <p><%= link_to "되돌아가기", :back ,class: "btn"%> </p>
-      </div> 
     </div>
   </div>
 </div>

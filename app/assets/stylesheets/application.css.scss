@@ -90,3 +90,44 @@ td{
 .fc-time{
     margin-top: 3.5px;
 }
+#footer {
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 1rem;
+  background-color: #EFD1C6;
+}
+//#F3CF55 올해의색 노란색
+//#EFD1C6 올해의색 분홍색
+.jumbotron{
+  background-color: #EFD1C6;
+}
+.btn-primary {
+    color: #fff;
+    background-color: #EFD1C6;
+    border-color: #EFD1C6;
+}
+#welcome_button {
+    color: #EFD1C6;
+    background-color: #fff;
+    border-color: #fff;
+}
+.navbar.navbar-default {
+    border-style: none;
+    background-color: #fff;
+}
+.btn-primary:hover, .btn-primary:focus, .btn-primary:active:focus, .btn-primary.active, .open>.dropdown-toggle.btn-primary {
+    color: #EFD1C6;
+    background-color: #fff;
+    border-color: #fff;
+}
+.panel-default > .panel-heading {
+    color: #333333;
+    background-color: #EFD1C6;
+    border-color: #ddd;
+}
+.alert-info {
+    background-color: #EFD1C6;
+    border-color: #EFD1C6;
+    color: #fff;
+}
