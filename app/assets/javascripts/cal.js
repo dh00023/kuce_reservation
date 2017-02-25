@@ -1,6 +1,7 @@
 var init_cal;
 init_cal=function(){
   $('.calendar').each(function(){
+    $('.title').append('<hr>');
       var calendar=$(this);
       calendar.fullCalendar({
         header: {
@@ -8,6 +9,7 @@ init_cal=function(){
                 center: false,
                 right: false
         },
+        eventOverlap: false,
         height: 673,
         defaultView: 'agendaWeek',
         selectable: {
