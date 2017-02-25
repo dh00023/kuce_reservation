@@ -3,16 +3,20 @@
     <div class="row">
       <div class="col-md-6">
         <div class="jumbotron">
-          <h1>상경대 세미나실 예약페이지</h1>
-          <p><%= link_to "회원가입", new_user_registration_path, class: "btn btn-primary btn-md" %> <%= link_to "로그인", new_user_session_path, class: "btn btn-primary btn-md" %></p>
+          <h1>상경대학 세미나실 예약페이지</h1>
+          <% if Time.now.strftime("%w").to_i<=5 &&  Time.now.strftime("%w").to_i>=1 %>
+            <% if Time.now.strftime("%k").to_i<=18 && Time.now.strftime("%k").to_i>=9 %> 
+              <p><%= link_to "회원가입", new_user_registration_path, class: "btn btn-primary btn-md" , id: "welcome_button"%> <%= link_to "로그인", new_user_session_path, class: "btn btn-primary btn-md",id: "welcome_button" %></p>
+            <% end %>
+          <% end %>
         </div>
       </div>
       <div class="col-md-5">
         <div class="form-group">
           <% @welcomes.each do |welcome| %>
-            <p><%= welcome.description %></p> 
+            <p><%= welcome.description.html_safe %></p>
             <% if current_user.try(:admin?) %>
-              <%= link_to 'Edit', edit_welcome_path(welcome) %>
+              <%= link_to 'Edit', edit_welcome_path(welcome)%>
             <% end %>
           <% end %>
         </div>        
@@ -20,3 +24,12 @@
     </div>
   </div>
 </div>
+<div class="navbar navbar-default" role="navigation">
+    <div class="panel-footer" id="footer">
+      <div class="col-md-offset-4">
+         <p>상경대학교 동행</p>
+         <p>Developed by 응용통계14정다혜, 컴퓨터공학15우미연</p>
+         <p>&copy; KONKUK LIKELION 5th</p>
+      </div>
+    </div>
+  </div>
