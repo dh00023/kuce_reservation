@@ -15,7 +15,7 @@ gem 'coffee-rails', '~> 4.2'
 # gem 'therubyracer', platforms: :ruby
 
 gem 'jquery-rails'
-gem 'turbolinks', '~> 5'
+# gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
@@ -41,3 +41,4 @@ gem 'devise', '~> 4.2'
 gem 'fullcalendar-rails'
 gem 'momentjs-rails'
 gem 'validates_timeliness', '~> 4.0', '>= 4.0.2'
+gem 'tinymce-rails'

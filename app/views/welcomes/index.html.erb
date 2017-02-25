@@ -10,9 +10,9 @@
       <div class="col-md-5">
         <div class="form-group">
           <% @welcomes.each do |welcome| %>
-            <p><%= welcome.description %></p> 
+            <p><%= welcome.description.html_safe %></p> 
             <% if current_user.try(:admin?) %>
-              <%= link_to 'Edit', edit_welcome_path(welcome) %>
+              <%= link_to 'Edit', edit_welcome_path(welcome)%>
             <% end %>
           <% end %>
         </div>        

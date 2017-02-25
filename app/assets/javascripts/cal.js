@@ -38,4 +38,5 @@ init_cal=function(){
     });
   });
 };
-$(document).on('turbolinks:load', init_cal);
+$(document).ready(init_cal);
+$(document).on('page:load', init_cal);
