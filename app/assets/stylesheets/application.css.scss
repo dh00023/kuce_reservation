@@ -40,7 +40,7 @@ body {
 }
 
 .fc-body tr{
-    height: 45px;
+    height: 80px;
 }
 
 .fc-view-container{
@@ -92,8 +92,12 @@ td{
 }
 
 .fc-event{
-    font-size: 15px!important;
-    text-align: center;
+    font-size: 8px!important;
+    text-align: left;
+}
+
+.fc-event>.fc-content{
+  margin-top: 20px;
 }
 
 .fc-time{
