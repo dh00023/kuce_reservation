@@ -13,6 +13,13 @@
  *= require_tree .
  *= require_self
  *= require fullcalendar
+ *= require jquery-ui
+ *= require jquery-ui/core
+ *= require jquery-ui/theme
+ *= require jquery-ui/draggable
+ *= require jquery-ui/resizable
+ *= require jquery-ui/selectable
+ *= require jquery-ui/sortable
  */
 @import url(//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css);
 @import "bootstrap-sprockets";
@@ -32,8 +39,8 @@ body {
 }
 
 .fc-row .fc-widget-header {
-    font-size: 18px;
-    height: 26px!important;
+    font-size: 16px;
+    height: 24px!important;
     color: #ffffff;
     background-color: #333;
     border-color: #333;

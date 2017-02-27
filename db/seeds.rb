@@ -5,8 +5,8 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-Group.create!(name: '205호', color: '#FFFFB0')
-Group.create!(name: '206호', color: '#DB8FAB')
-Group.create!(name: '207호', color: '#957CB2')
+Group.create!(name: '205호', color: '#ccc')
+Group.create!(name: '206호', color: '#333')
+Group.create!(name: '207호', color: '#888')
 Welcome.create!(description: '수정하세요')
 User.create!(username: "관리자", studentid: 123456789, phone: '01012345678', major: '관리자', admin: 'true',password: 'rhksflwk2017')
