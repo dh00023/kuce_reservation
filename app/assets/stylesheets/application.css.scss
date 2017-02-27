@@ -94,26 +94,8 @@ td{
 .fc-event{
     font-size: 8px!important;
     text-align: left;
-    display: relative!important;
 }
-.fc-event-container>a{
-  height: 80px;
-}
-.fc-event-container>a:first-child {
-	display: block;
-}
-.fc-event-container>a:nth-child(2) {
-	display: block;
-	position: relative;
-  left: 0px;
-  height: 27px;
-}
-.fc-event-container>a:nth-child(3) {
-	display: block;
-	position: relative;
-  left: 0px;
-  height: 27px;
-}
+
 .fc-event>.fc-content{
   margin-top: 20px;
 }

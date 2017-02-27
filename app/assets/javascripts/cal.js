@@ -11,7 +11,7 @@ init_cal=function(){
         },
         eventOverlap: false,
         firstDay: 1,
-        height: 1127,
+        height: 900,
         defaultView: 'agendaWeek',
         selectable: {
             agenda: true
