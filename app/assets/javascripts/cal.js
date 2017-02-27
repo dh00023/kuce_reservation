@@ -2,6 +2,7 @@ var init_cal;
 init_cal=function(){
   $('.calendar').each(function(){
     $('.title').append('<hr>');
+    var colordisplay = '<div class="displaycolor"></div>'
     var fc = $(this);
     var options = {
       header: {
@@ -37,27 +38,38 @@ init_cal=function(){
             columnFormat: 'D/ddd'
         }
       },
-      titleFormat: 'M/D ddd',
-      position: {
-	       viewport: $(window),
-	       adjust: { method: 'shift'}
-      }
+      titleFormat: 'M/D ddd'
     };
     fc.fullCalendar(options);
     function recreateFC(screenWidth) { // This will destroy and recreate the FC taking into account the screen size
       if (screenWidth < 700) {
+        options.header = {
+                left: 'title',
+                center: false,
+                right: 'prev,next'
+        };
         options.defaultView = 'agendaDay';
       } else {
         options.defaultView = 'agendaWeek';
       }
       fc.fullCalendar('destroy');
       fc.fullCalendar(options);
+      $('.fc-left').children().append('<div class="displaycolor" style="display: inline">hello</div>');
+      $('.fc-left').children().children().append('<p id="room205"></p>');
+      $('.fc-left').children().children().append('<p id="room206"></p>');
+      $('.fc-left').children().children().append('<p id="room207"></p>');
     }
     var pageWidth = $(window).width();
     $(window).resize(function (e) { //set window resize listener
       recreateFC(pageWidth); //or you can use $(document).width()
     });
+    $('.fc-left').children().append('<div class="displaycolor"></div>');
+    $('.fc-left').children().children().append('<p id="room205"></p>');
+    $('.fc-left').children().children().append('<p id="room206"></p>');
+    $('.fc-left').children().children().append('<p id="room207"></p>');
   });
 };
-$(document).ready(init_cal);
+$(document).ready(function(){
+  init_cal();
+});
 $(document).on('page:load', init_cal);
