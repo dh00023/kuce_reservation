@@ -181,19 +181,18 @@ input.form-control:focus {
 #radio {
     font-size: 14px;
     color: #555;
+    margin: 5px 5px 0px 5px;
 }
-input[type="radio"] {
-    box-sizing: border-box;
-    padding: 0;
-    border-radius: 0;
-}
+
 .panel-body{
   padding: 15px 18px 15px 18px;
 }
 .panel-body>p{
   font-size: 15px;
 }
-
+.panel-footer {
+  background-color: #fff;
+}
 .table-responsive>table>thead{
   font-size: 16px;
 }
