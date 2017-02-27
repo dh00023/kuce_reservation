@@ -1,4 +1,4 @@
-<div class="col-md-8 col-md-offset-2">
+<div class="col-md-4 col-md-offset-4">
   <div class="row">
     <div class="panel panel-default reservationform">
       <div class="panel-heading">
@@ -6,8 +6,10 @@
 	  </div>
 	  <div class="panel-body">
       	<%= render 'form', reservation: @reservation %>
-		<%= link_to 'Back', reservations_path %>
 	  </div>
+	   <div class="panel-footer">
+          <%= link_to '되돌아가기', reservations_path ,class: "btn"%>
+        </div> 
 	</div>
   </div>
 </div>
