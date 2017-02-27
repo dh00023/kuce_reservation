@@ -17,23 +17,17 @@
   </div>
 
   <div class="form-group">
-    <%= f.label :시간선택 %>
-    <div class="form-control timeform">
-      <label><%= f.radio_button :choose,'1'%> 1시간</label><br>
-      <label><%= f.radio_button :choose,'2'%> 2시간</label>
-    </div>
+    <%= f.label :시간선택 %></br> 
+      <label id="radio"><%= f.radio_button :choose,'1'%> 1시간</label>
+      <label id="radio"><%= f.radio_button :choose,'2'%> 2시간</label>
   </div>
 
   <div class="form-group">
-    <%= f.label :세미나실%>
-    <div class="form-control spaceform">
-      <label><%= f.radio_button :group_id,'1'%> 205호</label><br>
-      <label><%= f.radio_button :group_id,'2'%> 206호</label><br>
-      <label><%= f.radio_button :group_id,'3'%> 207호</label>
-    </div>
+    <%= f.label :세미나실%></br>
+      <label id="radio"><%= f.radio_button :group_id,'1'%> 205호</label>
+      <label id="radio"><%= f.radio_button :group_id,'2'%> 206호</label>
+      <label id="radio"><%= f.radio_button :group_id,'3'%> 207호</label>
   </div>
 
-  <div class="form-group">
     <%= f.submit "예약하기", class: "btn btn-primary" %>
-  </div>
 <% end %>
