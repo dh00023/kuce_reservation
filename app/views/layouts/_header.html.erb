@@ -12,15 +12,22 @@
 
    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav navbar-right">
-         <% if user_signed_in? %>
-            <li> <%= link_to '예약하기', new_reservation_path, class: "active"%></li>
-            <li><%= link_to '예약확인', check_reservation_path %></li>
-            <li><%= link_to "계정", edit_user_registration_path %></li>
-            <% if current_user.try(:admin?) %>
-               <li><%= link_to '공지사항', welcomes_path %></li> </td>
+        <% if user_signed_in? %>
+          <% if Time.now.strftime("%w").to_i<=5 &&  Time.now.strftime("%w").to_i>=1 %>
+            <% if Time.now.strftime("%k").to_i<=18 && Time.now.strftime("%k").to_i>=9 %>         
+              <li> <%= link_to '예약하기', new_reservation_path, class: "active"%></li>
             <% end %>
-            <li><%= link_to '로그아웃', destroy_user_session_path, method: :delete %></li>
-         <% end %>
+          <% end %>  
+          <li><%= link_to '예약확인', check_reservation_path %></li>
+          <li><%= link_to "계정", edit_user_registration_path %></li>
+          <% if current_user.try(:admin?) %>
+            <li><%= link_to '공지사항', welcomes_path %></li> </td>
+          <% end %>
+          <li><%= link_to '로그아웃', destroy_user_session_path, method: :delete %></li>
+        <% else %>
+          <li><%= link_to "회원가입", new_user_registration_path%></li>
+          <li><%= link_to "로그인", new_user_session_path%></li>
+        <% end %>
       </ul>
    </div>
   </div>
