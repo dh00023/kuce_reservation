@@ -18,3 +18,8 @@
 //= require fullcalendar
 //= require cal.js
 //= require tinymce-jquery
+//= require jquery-ui
+//= require jquery-ui/core
+//= require jquery-ui/widget
+//= require jquery-ui/position
+//= require jquery-ui/widgets/resizable
