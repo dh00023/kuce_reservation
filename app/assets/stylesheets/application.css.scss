@@ -41,14 +41,16 @@ body {
 
 .fc-row .fc-widget-header {
     font-size: 16px;
-    height: 24px!important;
+    height: 35px!important;
     color: #ffffff;
     background-color: #333;
     border-color: #333;
+    line-height: 35px;
+    font-weight: 100;
 }
 
 .fc-body tr{
-    height: 80px;
+    height: 60px;
 }
 
 .fc-view-container{
@@ -61,19 +63,19 @@ body {
 }
 
 .fc-left {
-    margin-bottom: 25px;
+    margin-bottom: 0px;
 }
 
 .fc-left h2 {
     font-size: 18px;
+    text-align: left;
+    font-weight:100;
 }
 
-hr.hrc {
-  color: #333!important;
+hr{
   width:84px;
-  margin-top:0px;
-  margin-bottom: 0px;
-  margin-left: 0px;
+  border-color:#000;
+  margin-left:0;
 }
 
 .fc-ltr .fc-time-grid .fc-event-container{
@@ -81,7 +83,8 @@ hr.hrc {
  }
 
 .fc-time-grid-event.fc-v-event.fc-event.fc-start.fc-end {
-    border-style: none;
+    border-style: solid none none none;
+    border-color: #333;
     border-radius: 0;
 }
 
@@ -100,17 +103,22 @@ td{
 }
 
 .fc-event{
-    font-size: 8px!important;
+    font-size: 12px!important;
     text-align: left;
+    padding-left:8px;
+    border-style: none;
+    margin-top: 1px;
 }
 
 .fc-event>.fc-content{
-  margin-top: 20px;
+  margin-top: 22px;
 }
+
 
 .fc-time{
     margin-top: 3.5px;
 }
+
 #footer {
   right: 0;
   bottom: 0;
@@ -188,11 +196,6 @@ input.form-control:focus {
 .form-group>label{
   font-size: 17px;
   color: #000;
-}
-#radio {
-    font-size: 14px;
-    color: #555;
-    margin: 5px 5px 0px 5px;
 }
 
 .panel-body{
