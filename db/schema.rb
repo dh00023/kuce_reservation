@@ -27,7 +27,7 @@ ActiveRecord::Schema.define(version: 20170223105601) do
     t.datetime "updated_at", null: false
     t.integer  "user_id"
     t.integer  "group_id"
-    t.integer  "title"
+    t.string   "title"
     t.string   "color"
   end
 

@@ -17,7 +17,7 @@
             <% if Time.now.strftime("%k").to_i<=18 && Time.now.strftime("%k").to_i>=9 %>
               <li> <%= link_to '예약하기', new_reservation_path, class: "active"%></li>
             <% end %>
-          <% end %>  
+          <% end %>
           <li><%= link_to '예약확인', check_reservation_path %></li>
           <li><%= link_to "계정", edit_user_registration_path %></li>
           <% if current_user.try(:admin?) %>

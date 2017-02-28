@@ -24,7 +24,7 @@ class Reservation < ApplicationRecord
 	end
 
 	def titlesetting
-		  self.title = self.user.studentid
+		  self.title = self.user.username
 	end
 
 	def colorsetting

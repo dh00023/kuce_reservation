@@ -11,7 +11,7 @@ init_cal=function(){
       },
       eventOverlap: false,
       firstDay: 1,
-      height: 1125,
+      height: 840,
       defaultView: 'agendaWeek',
       selectable: {
           agenda: true
@@ -23,6 +23,8 @@ init_cal=function(){
       editable: false,
       allDaySlot: false,
       events: '/reservations.json',
+      eventTextColor: "#333",
+      displayEventTime: false,
 
       minTime: "9:00:00",
       maxTime: "22:00:00",
@@ -37,27 +39,38 @@ init_cal=function(){
             columnFormat: 'D/ddd'
         }
       },
-      titleFormat: 'M/D ddd',
-      position: {
-	       viewport: $(window),
-	       adjust: { method: 'shift'}
-      }
+      titleFormat: 'M/D ddd'
     };
     fc.fullCalendar(options);
     function recreateFC(screenWidth) { // This will destroy and recreate the FC taking into account the screen size
       if (screenWidth < 700) {
+        options.header = {
+                left: 'title',
+                center: false,
+                right: 'prev,next'
+        };
         options.defaultView = 'agendaDay';
       } else {
         options.defaultView = 'agendaWeek';
       }
       fc.fullCalendar('destroy');
       fc.fullCalendar(options);
+      $('.fc-left').children().append('<div class="displaycolor"></div>');
+      $('.fc-left').children().children().append('<p id="room205">205</p>');
+      $('.fc-left').children().children().append('<p id="room206">206</p>');
+      $('.fc-left').children().children().append('<p id="room207">207</p>');
     }
     var pageWidth = $(window).width();
     $(window).resize(function (e) { //set window resize listener
       recreateFC(pageWidth); //or you can use $(document).width()
     });
+    $('.fc-left').children().append('<div class="displaycolor"></div>');
+    $('.fc-left').children().children().append('<p id="room205">205</p>');
+    $('.fc-left').children().children().append('<p id="room206">206</p>');
+    $('.fc-left').children().children().append('<p id="room207">207</p>');
   });
 };
-$(document).ready(init_cal);
+$(document).ready(function(){
+  init_cal();
+});
 $(document).on('page:load', init_cal);
