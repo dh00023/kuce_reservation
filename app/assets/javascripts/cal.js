@@ -1,7 +1,6 @@
 var init_cal;
 init_cal=function(){
   $('.calendar').each(function(){
-    $('.title').append('<hr>');
     var fc = $(this);
     var options = {
       header: {
@@ -11,7 +10,7 @@ init_cal=function(){
       },
       eventOverlap: false,
       firstDay: 1,
-      height: 840,
+      height: 852,
       defaultView: 'agendaWeek',
       selectable: {
           agenda: true
@@ -33,10 +32,10 @@ init_cal=function(){
       monthNames: ['1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월'],
       monthNamesShort: ['1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월'],
       dayNames: ['일요일','월요일','화요일','수요일','목요일','금요일','토요일'],
-      dayNamesShort: ['일','월','화','수','목','금','토'],
+      dayNamesShort: ['(일)','(월)','(화)','(수)','(목)','(금)','(토)'],
       views: {
         week: {
-            columnFormat: 'D/ddd'
+            columnFormat: 'Dddd'
         }
       },
       titleFormat: 'M/D ddd'
@@ -55,19 +54,21 @@ init_cal=function(){
       }
       fc.fullCalendar('destroy');
       fc.fullCalendar(options);
-      $('.fc-left').children().append('<div class="displaycolor"></div>');
-      $('.fc-left').children().children().append('<p id="room205">205</p>');
-      $('.fc-left').children().children().append('<p id="room206">206</p>');
-      $('.fc-left').children().children().append('<p id="room207">207</p>');
+      $('.fc-left').append('<hr>');
+      $('.fc-left').append('<div class="displaycolor"></div>');
+      $('.fc-left').children('.displaycolor').append('<p id="room205" class="room btn">205</p>');
+      $('.fc-left').children('.displaycolor').append('<p id="room206" class="room btn">206</p>');
+      $('.fc-left').children('.displaycolor').append('<p id="room207" class="room btn">207</p>');
     }
     var pageWidth = $(window).width();
     $(window).resize(function (e) { //set window resize listener
       recreateFC(pageWidth); //or you can use $(document).width()
     });
-    $('.fc-left').children().append('<div class="displaycolor"></div>');
-    $('.fc-left').children().children().append('<p id="room205">205</p>');
-    $('.fc-left').children().children().append('<p id="room206">206</p>');
-    $('.fc-left').children().children().append('<p id="room207">207</p>');
+    $('.fc-left').append('<hr>');
+    $('.fc-left').append('<div class="displaycolor"></div>');
+    $('.fc-left').children('.displaycolor').append('<p id="room205" class="room btn">205</p>');
+    $('.fc-left').children('.displaycolor').append('<p id="room206" class="room btn">206</p>');
+    $('.fc-left').children('.displaycolor').append('<p id="room207" class="room btn">207</p>');
   });
 };
 $(document).ready(function(){
