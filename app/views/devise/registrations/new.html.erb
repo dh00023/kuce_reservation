@@ -18,13 +18,13 @@
             <%= f.label :이름 %><br />
             <%= f.text_field :username , class: "form-control"%>
           </div>
-          
+
           <div class="form-group">
             <%= f.label :학과 %><br />
-              <label id="radio"><%= f.radio_button :major,'응용통계학과'%>응용통계학과</label>
-              <label id="radio"><%= f.radio_button :major,'국제무역학과'%>국제무역학과</label>
-              <label id="radio"><%= f.radio_button :major,'경제학과'%>경제학과</label>
-              <label id="radio"><%= f.radio_button :major,'소비자정보학과'%>소비자정보학과</label>
+              <label class="radio_choose clearfix"><%= f.radio_button :major,'응용통계학과',class: 'radio'%><span> 응용통계학과</span></label>
+              <label class="radio_choose clearfix"><%= f.radio_button :major,'국제무역학과',class: 'radio'%><span> 국제무역학과</span></label>
+              <label class="radio_choose clearfix"><%= f.radio_button :major,'경제학과',class: 'radio'%><span> 경제학과</span></label>
+              <label class="radio_choose clearfix"><%= f.radio_button :major,'소비자정보학과',class: 'radio'%><span> 소비자정보학과</span></label>
           </div>
 
           <div class="form-group">
@@ -58,3 +58,26 @@
   </div>
 </div>
 </div>
+<style>
+  .radio_choose {
+      font-size: 14px;
+      color: #555;
+      margin: 5px 5px 0px 5px;
+  }
+  .radio {
+      float: left;
+  }
+  input[type="radio"]{
+    -webkit-appearance: none;
+    padding: 8px;
+    background: #ffffff;
+    border-radius: 5px;
+    border: 1px solid black;
+    margin-right: 4px;
+  }
+  input[type="radio"]:checked{
+	  background-color: #ffeb3b;
+    border-color: #ffeb3b;
+    outline:0;
+  }
+</style>
