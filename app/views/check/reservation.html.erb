@@ -28,7 +28,7 @@
                     <td><%= reservation.user.phone %></td>
                     <td><%= reservation.user.major %></td>
                     <td><%= reservation.group.name %></td>
-                    <td><%= reservation.start.strftime("%F %I:%M") %> ~ <%= reservation.end.strftime("%I:%M") %></td>
+                    <td><%= reservation.start.strftime("%F %H:%M") %> ~ <%= reservation.end.strftime("%H:%M") %></td>
                     <td><%= link_to '예약보기', reservation %></td>
                     <td><%= link_to '예약취소', reservation, method: :delete, data: { confirm: 'Are you sure?' } %></td>
                   </tr>

@@ -7,14 +7,14 @@
       <span class="icon-bar"></span>
       <span class="icon-bar"></span>
      </button>
-     <%= link_to 'KUCE x LIKELION', root_path, class: "navbar-brand"  %>
+     <%= link_to 'KUCEMINAR', root_path, class: "navbar-brand"  %>
    </div>
 
    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav navbar-right">
         <% if user_signed_in? %>
           <% if Time.now.strftime("%w").to_i<=5 &&  Time.now.strftime("%w").to_i>=1 %>
-            <% if Time.now.strftime("%k").to_i<=18 && Time.now.strftime("%k").to_i>=9 %>
+            <% if Time.now.strftime("%k").to_i<=17 && Time.now.strftime("%k").to_i>=9 %>
               <li> <%= link_to '예약하기', new_reservation_path, class: "active"%></li>
             <% end %>
           <% end %>
