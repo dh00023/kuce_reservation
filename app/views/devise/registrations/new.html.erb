@@ -21,7 +21,7 @@
 
           <div class="form-group">
             <%= f.label :학과 %><br />
-              <label class="radio_choose clearfix"><%= f.radio_button :major,'응용통계학과',class: 'radio'%><span> 응용통계학과</span></label>
+	            <label class="radio_choose clearfix"><%= f.radio_button :major,'응용통계학과',class: 'radio'%><span> 응용통계학과</span></label>
               <label class="radio_choose clearfix"><%= f.radio_button :major,'국제무역학과',class: 'radio'%><span> 국제무역학과</span></label>
               <label class="radio_choose clearfix"><%= f.radio_button :major,'경제학과',class: 'radio'%><span> 경제학과</span></label>
               <label class="radio_choose clearfix"><%= f.radio_button :major,'소비자정보학과',class: 'radio'%><span> 소비자정보학과</span></label>
@@ -35,7 +35,7 @@
           <div class="form-group">
             <%= f.label :비밀번호 %>
             <% if @minimum_password_length %>
-            <em>(<%= @minimum_password_length %> characters minimum)</em>
+            <em>(최소 6자)</em>
             <% end %><br />
             <%= f.password_field :password, autocomplete: "off", class: "form-control" %>
           </div>
@@ -60,12 +60,16 @@
 </div>
 <style>
   .radio_choose {
+      width: 113px;
       font-size: 14px;
       color: #555;
       margin: 5px 5px 0px 5px;
   }
   .radio {
       float: left;
+  }
+  span{
+    font-size: 14px;
   }
   input[type="radio"]{
     -webkit-appearance: none;
