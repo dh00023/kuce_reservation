@@ -37,7 +37,7 @@ group :development do
 end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
-gem 'devise', '~> 4.2'
+gem 'devise', '~> 4.7'
 gem 'fullcalendar-rails'
 gem 'momentjs-rails'
 gem 'validates_timeliness', '~> 4.0', '>= 4.0.2'
