@@ -7,10 +7,12 @@
 # 건국대학교 상경대학(KUCE) 세미나실 예약 페이지 : KUCEMINAR
 
 ![Ruby on Rails](https://img.shields.io/badge/rails-v5.0.1-green)
-![bootstrap](https://img.shields.io/badge/bootstrap-sass-v3.3-green.svg)
+![bootstrap-sass](https://img.shields.io/badge/bootstrapsass-v3.3-green.svg)
 ![sqlLite3](https://img.shields.io/badge/sqlLite3-black.svg)
 
-<!-- 페이지 설명, 이미지 추가 -->
+건국대학교 상경대학(KUCE) 세미나실 예약페이지인 KUCE + SEMINAR = KUCEMINAR 페이지를 2017.03 ~ 2017.08 약 6개월 운영하였습니다. AWS EC2 서버에 배포하여 관리하였습니다.
+
+![image-20191223073441676](./assets/image-20191223073441676.png)
 
 ## 주요기능
 
